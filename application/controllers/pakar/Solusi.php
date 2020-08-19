@@ -7,6 +7,7 @@ class Solusi extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('solusi_model');
+		$this->load->model('penyakit_model');
 		// proteksi halaman
 		$this->simple_login->cek_login();
 	}
@@ -38,8 +39,9 @@ class Solusi extends CI_Controller {
 
 		if($valid->run()===FALSE) {
 		// end validasi
-
+		$penyakit = $this->penyakit_model->listing();
 		$data = array( 'title' 	=> 'Tambah Solusi',
+						'penyakit' => $penyakit,
 						'isi'	=> 'pakar/solusi/tambah'
 					);
 		$this->load->view('pakar/layout/wrapper', $data, FALSE);

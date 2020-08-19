@@ -17,13 +17,16 @@ echo form_open(base_url('pakar/solusi/tambah'), 'class="form-horizontal');
 	<div class="col-md-5">
 		<!-- <input type="text" name="id_penyakit" class="form-control"  placeholder="Id_penyakit" value="<?php echo set_value('id_penyakit') ?>" required> -->
 	<select name="id_penyakit" class="form-control">
-		<option value="P01">Hipertensi</option>
+		<!--<option value="P01">Hipertensi</option>
 		<option value="P02">Diabetes</option>
 		<option value="P03">Jantung</option>
 		<option value="P04">Ginjal</option>
 		<option value="P05">Obesitas</option>
 		<option value="P06">Asam Urat</option>
-		<option value="P07">Vertigo</option>
+		<option value="P07">Vertigo</option>-->
+		<?php foreach($penyakit as $p){ ?>
+		<option value="<?php echo $p->id_penyakit ?>"><?php echo $p->penyakit ?></option>
+	<?php } ?>
 	</select>
 
 	</div>
